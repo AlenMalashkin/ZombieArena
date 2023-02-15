@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="27741aed-6682-490d-9bba-e3498382350f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Weapons/Pistol.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Pool/PoolMono.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../RPG_Architecture_Project/Assets/Scripts/Enemy/Attack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Storage/Storage.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/Timer/Timer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Storage/Surrogates/PistolSerializableSurrotgate.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Shop/InventorySlot.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Factories/EquipmentFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/IControllable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Input/PlayerInput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Equipment/Eqipment.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Installers/ShopInstaller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Equipment/EquipmentEnabler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Shop/Item.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullets/Bullets/PistolBullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullets/BulletAbstract.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Timer/TimerType.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Timer/TimeChangingSource.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Timer/TimeInvoker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Timer/Timer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Installers/PlayerInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyMarker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factories/IEnemyFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factories/EnemyFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factories/EnemyFactoryInvoker.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Pool/PoolZenject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/Pool/PoolMono.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/Eqipment.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyAttackTrigger.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/State Machine/State.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/States/MoveState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/States/AttackState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/State Machine/Transitions/DistanceTransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/State Machine/Transition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Weapons/Pistol.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/State Machine/EnemyStateMachine.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/State Machine/Transitions/AttackTransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/State Machine/Transitions/MoveTransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Old/Behaviours/AttackEnemyBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Old/Behaviours/ChaseEnemyBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Old/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Old/Transitions/AttackTransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviours/AttackEnemyBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviours/ChaseEnemyBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Behaviours/DieEnemyBehaviour.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Transitions/AttackTransition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/Bullets/BulletDefault.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Spawners/EnemyPool.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponAbstract.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Installers/DontDestroyOnLoadInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Installers/LocationInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Storage/GameSaver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Installers/GameSaveInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Factories/EquipmentFactory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Storage/Surrogates/WeaponSerializationSurrotgate.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Storage/Surrogates/PistolSerializableSurrotgate.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shop/Shop.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Installers/ShopInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Equipment/EquipmentEnabler.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shop/InventorySlot.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Storage/GameData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shop/Inventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shop/Item.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Storage/Storage.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Kwk95tV8Duai6ROZZAUuemldpx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="27741aed-6682-490d-9bba-e3498382350f" name="Default Changelist" comment="" />
+      <created>1674892924576</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674892924576</updated>
+      <workItem from="1674892936881" duration="3026000" />
+      <workItem from="1674924477572" duration="6150000" />
+      <workItem from="1675085967637" duration="14825000" />
+      <workItem from="1675188000563" duration="4794000" />
+      <workItem from="1675250578450" duration="4933000" />
+      <workItem from="1675258865139" duration="2815000" />
+      <workItem from="1675334399233" duration="9476000" />
+      <workItem from="1675408633178" duration="15442000" />
+      <workItem from="1675493422827" duration="10512000" />
+      <workItem from="1675533323873" duration="491000" />
+      <workItem from="1675670997797" duration="7425000" />
+      <workItem from="1675700313124" duration="1926000" />
+      <workItem from="1675878174851" duration="5281000" />
+      <workItem from="1675886135930" duration="1790000" />
+      <workItem from="1675966799678" duration="6264000" />
+      <workItem from="1676016576631" duration="6259000" />
+      <workItem from="1676038913101" duration="1979000" />
+      <workItem from="1676099055304" duration="8357000" />
+      <workItem from="1676293852760" duration="2767000" />
+      <workItem from="1676402092375" duration="980000" />
+      <workItem from="1676480348219" duration="4550000" />
+    </task>
+    <servers />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="794" y="221" key="RiderGenerateDialog" timestamp="1676402834541">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="221" key="RiderGenerateDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1676402834541" />
+    <state x="52" y="0" width="1356" height="1027" key="dock-window-1" timestamp="1675337998310">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="52" y="0" width="1356" height="1027" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1675337998310" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1675498631378">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1675498631378" />
+  </component>
+</project>
