@@ -6,11 +6,11 @@ using Zenject;
 
 public class EquipmentFactory : MonoBehaviour
 {
+	public const string EquippedItemSavePath = "EquippedItem";
+	
 	[SerializeField] private EquipmentEnabler _equipmentEnabler;
 	[SerializeField] private Transform[] _gunInitPositions;
 	[SerializeField] private GameData _gameData;
-
-	private Storage _storage;
 	
 	public Transform[] GunInitPositions => _gunInitPositions;
 	public List<WeaponAbstract> InitializedWeapons { get; } = new List<WeaponAbstract>();
@@ -25,22 +25,23 @@ public class EquipmentFactory : MonoBehaviour
 
 	private void Awake()
 	{
+		if (!PlayerPrefs.HasKey(EquippedItemSavePath + 0))
+		{
+			PlayerPrefs.SetString(EquippedItemSavePath + 0, "Weapons/Pistol");
+		}
+		
 		_equipmentEnabler.Construct(_enemyPool, InitializedWeapons);
 		
-		Debug.Log(_gameData.equipment);
-		
-		_storage = new Storage();
-		_gameData = (GameData) _storage.Load(_gameData);
-		
-		var weapons = _gameData.equipment;
-		
-		Debug.Log(weapons);
-		
-		foreach (var weapon in weapons)
-		{
-			Debug.Log(weapon);
-		}
+		var weapons = new List<WeaponAbstract>();
 
+		for (int i = 0; i < 4; i++)
+		{
+			if (PlayerPrefs.HasKey(EquippedItemSavePath + i))
+			{
+				weapons.Add(Resources.Load<WeaponAbstract>(PlayerPrefs.GetString(EquippedItemSavePath + i)));
+			}
+		}
+		
 		for (int i = 0; i < weapons.Count; i++)
 		{
 			var gun = Create(weapons[i], GunInitPositions[i]);

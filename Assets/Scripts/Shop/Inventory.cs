@@ -4,29 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
-{
-    [SerializeField] private Sprite[] _itemSprites;
-    [SerializeField] private InventorySlot _slot;
+{ 
+    public const string EquippedItemSavePath = "EquippedItem";
 
-    private Dictionary<Type, Sprite> _defineItemSpriteByType;
-
-    private Storage _storage;
-    private GameData _gameData;
-
+    [SerializeField] private InventorySlot slotPrefab;
+    [SerializeField] private List<Sprite> inventorySlotSprites;
+    
+    private Dictionary<string, Sprite> _definePrefabPathAsInventorySprite;
+    
     private void Awake()
     {
-        _storage = new Storage();
-        _gameData = (GameData) _storage.Load(new GameData());
-        
-        _defineItemSpriteByType = new Dictionary<Type, Sprite>()
+        _definePrefabPathAsInventorySprite = new Dictionary<string, Sprite>()
         {
-            {typeof(Pistol), _itemSprites[0]},
+            {"Weapons/Pistol", inventorySlotSprites[0]},
+            {"Weapons/Another", inventorySlotSprites[1]}
         };
-
-        for (int i = 0; i < _gameData.equipment.Count; i++)
+        
+        for (int i = 0; i < 4; i++)
         {
-            var slot = Instantiate(_slot, transform, true);
-            slot.Init(_defineItemSpriteByType[_gameData.equipment[i].GetType()]);
+            if (PlayerPrefs.HasKey(EquippedItemSavePath + i))
+            {
+                var slot = Instantiate(slotPrefab, transform, true);
+                
+                slot.Init(_definePrefabPathAsInventorySprite
+                    [PlayerPrefs.GetString(EquippedItemSavePath + i)]);
+            }
         }
     }
 }

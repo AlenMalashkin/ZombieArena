@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    [SerializeField] private WeaponAbstract _weapon;
+    public const string EquippedItemSavePath = "EquippedItem";
+    
+    [SerializeField] private string _weaponPrefabPath;
     [SerializeField] private Button _button;
-
-    private Storage _storage;
-    private GameData _gameData;
 
     private void OnEnable()
     {
@@ -22,28 +21,26 @@ public class Item : MonoBehaviour
         _button.onClick.RemoveListener(BuyItem);
     }
 
-    private void Awake()
-    {
-        _storage = new Storage();
-        _gameData = (GameData) _storage.Load(new GameData());
-    }
-
     private void BuyItem()
     {
-        var equipment = _gameData.equipment;
-        
-        if (equipment.Count < 4)
+        var equippedSlots = new string[4];
+
+        for (int i = 0; i < 4; i++)
         {
-            equipment.Add(_weapon);
+            var itemPath = PlayerPrefs.GetString(EquippedItemSavePath + i);
+            equippedSlots[i] = itemPath;
         }
 
-        _gameData.equipment = equipment;
-
-        foreach (var item in _gameData.equipment)
+        for (int i = equippedSlots.Length - 1; i >= 1; i--)
         {
-            Debug.Log(item);
+            equippedSlots[i] = equippedSlots[i - 1];
         }
+
+        equippedSlots[0] = _weaponPrefabPath;
         
-        _storage.Save(_gameData);
+        foreach (var slot in equippedSlots)
+        {
+            Debug.Log(slot);
+        }
     }
 }

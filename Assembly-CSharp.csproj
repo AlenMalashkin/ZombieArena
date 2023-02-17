@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{e7a05ad1-fa5f-1812-63b4-a6613c13c49d}</ProjectGuid>
+    <ProjectGuid>{d43b16f8-45d0-9c05-79e9-0696641a0bbf}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Factories\EquipmentFactory.cs" />
+     <Compile Include="Assets\Scripts\Shop\Shop.cs" />
      <Compile Include="Assets\Scripts\Weapons\WeaponAbstract.cs" />
      <Compile Include="Assets\Scripts\Input\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\Storage\Surrogates\PistolSerializableSurrotgate.cs" />
@@ -55,12 +56,15 @@
      <Compile Include="Assets\Scripts\Storage\GameData.cs" />
      <Compile Include="Assets\Scripts\Spawners\EnemyPool.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullets\BulletDefault.cs" />
+     <Compile Include="Assets\Scripts\Shop\Item.cs" />
      <Compile Include="Assets\Scripts\Camera\FollowingCamera.cs" />
      <Compile Include="Assets\Scripts\Storage\Storage.cs" />
      <Compile Include="Assets\Scripts\Enemies\Behaviours\ChaseEnemyBehaviour.cs" />
+     <Compile Include="Assets\Scripts\Shop\InventorySlot.cs" />
      <Compile Include="Assets\Scripts\Input\GameInput.cs" />
      <Compile Include="Assets\Scripts\Equipment\EquipmentEnabler.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullets\Bullets\PistolBullet.cs" />
+     <Compile Include="Assets\Scripts\Shop\Inventory.cs" />
      <Compile Include="Assets\Scripts\Utils\Timer\TimeChangingSource.cs" />
      <Compile Include="Assets\Scripts\Enemies\Behaviours\AttackEnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Weapons\Weapons\Pistol.cs" />
@@ -71,10 +75,6 @@
      <Compile Include="Assets\Scripts\Character\Player.cs" />
      <Compile Include="Assets\Scripts\Enemies\Behaviours\DieEnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Utils\Pool\PoolMono.cs" />
-     <Compile Include="Assets\Scripts\Shop\Shop.cs" />
-     <Compile Include="Assets\Scripts\Shop\Inventory.cs" />
-     <Compile Include="Assets\Scripts\Shop\Item.cs" />
-     <Compile Include="Assets\Scripts\Shop\InventorySlot.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
@@ -298,19 +298,19 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Zenject-usage">
-     <HintPath>C:\Users\gor28\NoobArena\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
      </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
-     <HintPath>C:\Users\gor28\NoobArena\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
      </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
-     <HintPath>C:\Users\gor28\NoobArena\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
      </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
-     <HintPath>C:\Users\gor28\NoobArena\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
      </Reference>
      <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
-     <HintPath>C:\Users\gor28\NoobArena\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.iOS.Extensions.Xcode">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -664,62 +664,62 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VisualStudio.Editor">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline.Editor">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Timeline">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
      </Reference>
      <Reference Include="Unity.TextMeshPro">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.InputSystem">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Rider.Editor">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="Unity.PlasticSCM.Editor">
-     <HintPath>C:\Users\gor28\NoobArena\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
-      <Project>{8fb05a38-364c-6b7e-c2aa-2436452d2b15}</Project>
+      <Project>{ecc990cd-bc06-c3f0-10b6-27a9ac5b2584}</Project>
       <Name>Zenject-ReflectionBaking-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
-      <Project>{b9c98caf-e04d-939b-3b36-41107e60049b}</Project>
+      <Project>{d47c562b-200e-211b-c752-1da87013b370}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
-      <Project>{10384b39-cf91-3df5-c6a7-b89dbbf466ac}</Project>
+      <Project>{35846753-3948-4948-c2a8-5b45d7df9b6b}</Project>
       <Name>NavMeshComponentsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{55a34fa1-1f92-bfb2-a161-fb5a12832f4e}</Project>
+      <Project>{efeaa5f2-1547-22ca-fa7e-39a3e0104553}</Project>
       <Name>NavMeshComponents</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-Editor.csproj">
-      <Project>{ea912b95-324d-59fb-fa89-799630518711}</Project>
+      <Project>{b99f0b7a-b60d-4d47-d871-0836782beee1}</Project>
       <Name>Zenject-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
-      <Project>{0c8772a6-2cd5-c43a-1bfb-b2043e593bd1}</Project>
+      <Project>{1cdff7f9-8cff-f26f-d5b7-5012521893a3}</Project>
       <Name>Zenject-PoolMonitor-Editor</Name>
     </ProjectReference>
   </ItemGroup>
