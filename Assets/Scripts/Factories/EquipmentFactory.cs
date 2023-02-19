@@ -10,7 +10,6 @@ public class EquipmentFactory : MonoBehaviour
 	
 	[SerializeField] private EquipmentEnabler _equipmentEnabler;
 	[SerializeField] private Transform[] _gunInitPositions;
-	[SerializeField] private GameData _gameData;
 	
 	public Transform[] GunInitPositions => _gunInitPositions;
 	public List<WeaponAbstract> InitializedWeapons { get; } = new List<WeaponAbstract>();
@@ -49,7 +48,7 @@ public class EquipmentFactory : MonoBehaviour
 		}
 	}
 
-	public WeaponAbstract Create(WeaponAbstract weapon, Transform at)
+	private WeaponAbstract Create(WeaponAbstract weapon, Transform at)
 	{
 		var gun = Instantiate
 			(

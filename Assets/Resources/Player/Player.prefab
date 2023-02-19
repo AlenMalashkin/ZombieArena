@@ -140,6 +140,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _checkGroundSphereRadius: 0.5
+  _healthDefault: 100
 --- !u!114 &5114696679800060510
 MonoBehaviour:
   m_ObjectHideFlags: 0

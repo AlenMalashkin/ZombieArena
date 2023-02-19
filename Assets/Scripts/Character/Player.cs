@@ -1,13 +1,20 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour, IControllable
 {
+	public event Action<float> OnHealthChangedEvent;
+	
 	[SerializeField] private float _speed;
 	[SerializeField] private float _gravity;
 	[SerializeField] private Transform _groundCheckerPosition;
 	[SerializeField] private LayerMask _groundMask;
 	[SerializeField] private float _checkGroundSphereRadius;
+	
+	[SerializeField] private int _healthDefault = 100;
+	public int health { get; private set; }
+	public float healthNormalized => (float) health / _healthDefault;
 	
 	private CharacterController _controller;
 	private float _velocity;
@@ -16,6 +23,7 @@ public class Player : MonoBehaviour, IControllable
 	private void Awake()
 	{
 		_controller = GetComponent<CharacterController>();
+		health = _healthDefault;
 	}
 
 	private void FixedUpdate()
@@ -51,5 +59,15 @@ public class Player : MonoBehaviour, IControllable
 		_velocity += _gravity * Time.fixedDeltaTime;
 
 		_controller.Move(Vector3.up * _velocity * Time.fixedDeltaTime);
+	}
+
+	public void HitPlayer(int damage)
+	{
+		health -= damage;
+        
+		if (health <= 0)
+			Destroy(gameObject);
+        
+		OnHealthChangedEvent?.Invoke(healthNormalized);
 	}
 }

@@ -5,12 +5,14 @@ using UnityEngine.AI;
 
 	public class AttackEnemyBehaviour : IEnemyBehaviour
 	{
+		private Player _player;
 		private float _startAttackRate;
 		private float _attackRate;
 		
-		public AttackEnemyBehaviour(float startAttackRate)
+		public AttackEnemyBehaviour(Player player, float startAttackRate)
 		{
 			_startAttackRate = startAttackRate;
+			_player = player;
 		}
 		
 		public void Enter()
@@ -24,7 +26,7 @@ using UnityEngine.AI;
 
 			if (_attackRate <= 0)
 			{
-				Debug.Log("Player hited");
+				_player.HitPlayer(5);
 				_attackRate = _startAttackRate;
 			}
 		}

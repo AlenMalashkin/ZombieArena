@@ -8,16 +8,16 @@ using Zenject;
     [RequireComponent(typeof(NavMeshAgent))]
     public class Enemy : MonoBehaviour
     {
-
-        [SerializeField] private float _health;
+        public event Action<float> OnHealthChangedEvent;
+        
         [SerializeField] private float _attackRate;
         [SerializeField] private NavMeshAgent _agent;
-        
-        public float health => _health;
-        
+        [SerializeField] private int _healthDefault;
+
+        private int health { get; set; }
+        public float healthNormalized => (float) health / _healthDefault;
         
         private Player _player;
-        public Player Player => _player;
 
         private Dictionary<Type, IEnemyBehaviour> _behaviours;
 
@@ -31,7 +31,7 @@ using Zenject;
 
         private void OnEnable()
         {
-            _health = 10;
+            health = _healthDefault;
             InitBehaviours();
             SetBehaviourByDefault();
         }
@@ -48,13 +48,18 @@ using Zenject;
         {
             if (other.collider.TryGetComponent(out BulletDefault bullet))
             {
-                Debug.Log("Enemy hited!");
-                _health -= bullet.damage;
-                bullet.gameObject.SetActive(false);
-
-                if (health <= 0)
-                    gameObject.SetActive(false);   
+                HitEnemy(bullet.damage);  
             }
+        }
+
+        private void HitEnemy(int damage)
+        {
+            health -= damage;
+        
+            if (health <= 0)
+                gameObject.SetActive(false);
+
+            OnHealthChangedEvent?.Invoke(healthNormalized);
         }
 
         private void InitBehaviours()
@@ -62,7 +67,7 @@ using Zenject;
             _behaviours = new Dictionary<Type, IEnemyBehaviour>
             {
                 [typeof(ChaseEnemyBehaviour)] = new ChaseEnemyBehaviour(_agent, _player),
-                [typeof(AttackEnemyBehaviour)] = new AttackEnemyBehaviour(_attackRate),
+                [typeof(AttackEnemyBehaviour)] = new AttackEnemyBehaviour(_player, _attackRate),
                 [typeof(DieEnemyBehaviour)] = new DieEnemyBehaviour(gameObject)
             };
         }
@@ -86,7 +91,7 @@ using Zenject;
         {
             return _behaviours[typeof(T)];
         }
-        
+
         public void SetChaseBehaviour()
         {
             var behaviour = GetBehaviour<ChaseEnemyBehaviour>();

@@ -20,15 +20,34 @@ public class Inventory : MonoBehaviour
             {"Weapons/Another", inventorySlotSprites[1]}
         };
         
+        LoadItemIcons();
+    }
+
+    private void LoadItemIcons()
+    {
         for (int i = 0; i < 4; i++)
         {
-            if (PlayerPrefs.HasKey(EquippedItemSavePath + i))
+            if (PlayerPrefs.GetString(EquippedItemSavePath + i) != "")
             {
                 var slot = Instantiate(slotPrefab, transform, true);
-                
+                        
                 slot.Init(_definePrefabPathAsInventorySprite
                     [PlayerPrefs.GetString(EquippedItemSavePath + i)]);
             }
         }
+    }
+
+    private void RemoveItemIcons()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject); 
+        }
+    }
+    
+    public void UpdataUI()
+    {
+        RemoveItemIcons();
+        LoadItemIcons();
     }
 }

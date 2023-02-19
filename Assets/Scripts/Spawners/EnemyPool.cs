@@ -68,6 +68,7 @@ public class EnemyPool : MonoBehaviour
             if (!enemy.gameObject.activeInHierarchy)
             {
                 enemy.gameObject.SetActive(true);
+                enemy.transform.position = _spawnPoints[Random.Range(0, _spawnPoints.Length)].position;
                 element = enemy;
                 return true;
             }
@@ -80,15 +81,12 @@ public class EnemyPool : MonoBehaviour
     private void GetEnemyFromPool()
     {
         _timer.Start(_timeToGetEnemyFromPool);
-        
-        if (HasFreeElement(out var element))
-            return;
-            
+
         if (_autoExpand)
             Create(_enemyPrefab, transform, true);
         
-        
-        throw new Exception($"The pool of type {typeof(Enemy).Name} is empty. Current elements number is: {_enemyPool.Count}");
+        if (HasFreeElement(out var element))
+            return;
     }
 
     public Enemy[] GetActiveEnemies()

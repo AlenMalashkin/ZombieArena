@@ -5,9 +5,9 @@ public class BulletDefault : MonoBehaviour
 {
 	[SerializeField] private float _lifeTime;
 	[SerializeField] private float _bulletSpeed;
-	[SerializeField] private float _damage;
+	[SerializeField] private int _damage;
 
-	public float damage => _damage;
+	public int damage => _damage;
 	private Timer _timer;
 
 	private void OnEnable()
