@@ -17,7 +17,8 @@ public class Inventory : MonoBehaviour
         _definePrefabPathAsInventorySprite = new Dictionary<string, Sprite>()
         {
             {"Weapons/Pistol", inventorySlotSprites[0]},
-            {"Weapons/Another", inventorySlotSprites[1]}
+            {"Weapons/Uzi", inventorySlotSprites[1]},
+            {"Weapons/Rifle", inventorySlotSprites[2]},
         };
         
         LoadItemIcons();

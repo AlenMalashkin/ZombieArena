@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -176,6 +176,7 @@ MonoBehaviour:
   inventorySlotSprites:
   - {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
   - {fileID: 21300000, guid: 626b9cddb29049e4cac50cd87b419945, type: 3}
+  - {fileID: 21300000, guid: 92b204cca46037444ab18ba6701f86f7, type: 3}
 --- !u!114 &230333910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +374,7 @@ MonoBehaviour:
   _items:
   - {fileID: 5111783142814849055, guid: 6658d98970b318f42a6e8b2eecec1299, type: 3}
   - {fileID: 4517123165428234250, guid: 052032d93ff6cbe4aad410bec5f94b68, type: 3}
+  - {fileID: 4517123165428234250, guid: 85e15ce2d8296324b84fdfa8694ab33b, type: 3}
   _inventory: {fileID: 230333909}
 --- !u!1 &600058121
 GameObject:
