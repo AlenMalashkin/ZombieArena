@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveTimer : MonoBehaviour
 {
@@ -28,7 +30,11 @@ public class WaveTimer : MonoBehaviour
 
     private void TimerFinished()
     {
-        Debug.Log("Timer finished!");
+        var currentWave = PlayerPrefs.GetInt("EnemyWave", 1);
+        currentWave += 1;
+        PlayerPrefs.SetInt("EnemyWave",currentWave);
+
+        SceneManager.LoadScene("WavePassed");
     }
 
     private void TimerValueChanged(float remainSeconds, TimeChangingSource changingSource)

@@ -16,12 +16,12 @@ public class BulletDefault : MonoBehaviour
 
 		_timer.Start(_lifeTime);
 
-		_timer.TimerFinished += () => gameObject.SetActive(false);
+		_timer.TimerFinished += DeactivateBullet;
 	}
 
 	private void OnDisable()
 	{
-		_timer = null;
+		_timer.TimerFinished -= DeactivateBullet;
 	}
 
 	private void OnCollisionEnter(Collision other)
@@ -35,5 +35,10 @@ public class BulletDefault : MonoBehaviour
 	private void Update()
 	{
 		transform.Translate(Vector3.forward * _bulletSpeed * Time.deltaTime);
+	}
+
+	public void DeactivateBullet()
+	{
+		gameObject.SetActive(false);
 	}
 }

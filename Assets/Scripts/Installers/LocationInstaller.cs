@@ -2,19 +2,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class LocationInstaller : MonoInstaller, IInitializable
+public class LocationInstaller : MonoInstaller
 {
     [SerializeField] private Player _player;
     [SerializeField] private Transform _spawnPoint;
 
     [SerializeField] private EnemyPool _enemyPool;
     [SerializeField] private EquipmentFactory _equipmentFactory;
+    [SerializeField] private WaveUpscaler _waveUpscaler;
     
     public override void InstallBindings()
     {
         BindInstallerInterfaces();
         BindEnemyPool();
         BindPlayer();
+        BindWaveUpscaler();
     }
 
     private void BindInstallerInterfaces()
@@ -64,16 +66,11 @@ public class LocationInstaller : MonoInstaller, IInitializable
             .AsSingle();
     }
 
-    public void Initialize()
+    private void BindWaveUpscaler()
     {
-        /*var equipmentFactory = Container.Resolve<EquipmentFactory>();
-        var gameSaver = Container.Resolve<GameSaver>();
-        var weapons = gameSaver.Weapons;
-
-        for (int i = 0; i < weapons.Count; i++)
-        {
-            var gun = equipmentFactory.Create(weapons[i], equipmentFactory.GunInitPositions[i]);
-            equipmentFactory.InitializedWeapons.Add(gun);
-        }*/
+        Container
+            .Bind<WaveUpscaler>()
+            .FromInstance(_waveUpscaler)
+            .AsSingle();
     }
 }

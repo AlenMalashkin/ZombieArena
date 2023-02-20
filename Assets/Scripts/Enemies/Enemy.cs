@@ -31,9 +31,9 @@ using Zenject;
 
         private void OnEnable()
         {
-            health = _healthDefault;
             InitBehaviours();
             SetBehaviourByDefault();
+            OnHealthChangedEvent?.Invoke(healthNormalized);
         }
 
         private void Update()
@@ -90,6 +90,14 @@ using Zenject;
         private IEnemyBehaviour GetBehaviour<T>() where T : IEnemyBehaviour
         {
             return _behaviours[typeof(T)];
+        }
+
+        public void SetEnemyStatsOnCurrentWave(int healthCount, float speed, float attackRate)
+        {
+            _healthDefault = healthCount;
+            health = _healthDefault;
+            _agent.speed = speed;
+            _attackRate = attackRate;
         }
 
         public void SetChaseBehaviour()

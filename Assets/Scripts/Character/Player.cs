@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour, IControllable
@@ -64,10 +65,12 @@ public class Player : MonoBehaviour, IControllable
 	public void HitPlayer(int damage)
 	{
 		health -= damage;
-        
+
 		if (health <= 0)
-			Destroy(gameObject);
-        
+		{
+			SceneManager.LoadScene("WaveDefeated");
+		}
+
 		OnHealthChangedEvent?.Invoke(healthNormalized);
 	}
 }

@@ -56,6 +56,10 @@ public class EnemyPool : MonoBehaviour
             container
         );
 
+        var waveParams = _diContainer.Resolve<WaveUpscaler>();
+        
+        createdObject.SetEnemyStatsOnCurrentWave(waveParams.Health, waveParams.Speed, waveParams.AttackRate);
+
         createdObject.gameObject.SetActive(isActiveByDefault);
         _enemyPool.Add(createdObject);
         return createdObject;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\gor28\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\gor28\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ZombieArena.1371763835.00" t="ExcludeRecursive" />
-    <e p="C:\Users\gor28\ZombieArena" t="IncludeRecursive">
+    <e p="C:\Users\Egor\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Egor\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ZombieArena.-1969611443.00" t="ExcludeRecursive" />
+    <e p="D:\UnityProjects\ZombieArena" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="NavMeshComponents" t="Include">
@@ -949,6 +949,7 @@
           <e p="Camera" t="Include">
             <e p="FollowingCamera.cs" t="Include" />
           </e>
+          <e p="ChangeSceneButton.cs" t="Include" />
           <e p="Character" t="Include">
             <e p="IControllable.cs" t="Include" />
             <e p="Player.cs" t="Include" />
@@ -980,6 +981,7 @@
             <e p="LocationInstaller.cs" t="Include" />
             <e p="ShopInstaller.cs" t="Include" />
           </e>
+          <e p="LoadStartParams.cs" t="Include" />
           <e p="LookAtCamera.cs" t="Include" />
           <e p="Shop" t="Include">
             <e p="Inventory.cs" t="Include" />
@@ -991,6 +993,7 @@
             <e p="EnemyPool.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="DisplayCurrentWave.cs" t="Include" />
             <e p="Progressbar" t="Include">
               <e p="EnemyLifeBar.cs" t="Include" />
               <e p="LifeBar.cs" t="Include" />
@@ -1008,6 +1011,9 @@
               <e p="Timer.cs" t="Include" />
               <e p="TimerType.cs" t="Include" />
             </e>
+          </e>
+          <e p="Wave Upscale" t="Include">
+            <e p="WaveUpscaler.cs" t="Include" />
           </e>
           <e p="Weapons" t="Include">
             <e p="Bullets" t="Include">
