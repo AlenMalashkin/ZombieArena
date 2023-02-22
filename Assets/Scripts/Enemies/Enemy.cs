@@ -9,6 +9,7 @@ using Zenject;
     public class Enemy : MonoBehaviour
     {
         public event Action<float> OnHealthChangedEvent;
+        public event Action OnEnemyDieEvent;
         
         [SerializeField] private float _attackRate;
         [SerializeField] private NavMeshAgent _agent;
@@ -55,9 +56,12 @@ using Zenject;
         private void HitEnemy(int damage)
         {
             health -= damage;
-        
+
             if (health <= 0)
+            {
+                OnEnemyDieEvent?.Invoke();
                 gameObject.SetActive(false);
+            }
 
             OnHealthChangedEvent?.Invoke(healthNormalized);
         }

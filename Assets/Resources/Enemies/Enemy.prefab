@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 4758774093376144069}
   - component: {fileID: 4758774093376144066}
   - component: {fileID: 1616599930816149940}
+  - component: {fileID: 8837014603070827915}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -410,6 +411,25 @@ MonoBehaviour:
   _attackRate: 1
   _agent: {fileID: 4758774093376144066}
   _healthDefault: 10
+--- !u!114 &8837014603070827915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758774093376144068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9712ca49deecce548872d6c084586de5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1616599930816149940}
+  moneyPrefab: {fileID: 2561151147991283736, guid: 8739d9b68b260544590afe888c57ff87, type: 3}
+  moneyAmount: 5
+  moneySpeed: 5
+  moneySpread: 180
+  minMoveDuration: 0.2
+  maxMoveDuration: 0.5
 --- !u!1 &6483769479431898783
 GameObject:
   m_ObjectHideFlags: 0

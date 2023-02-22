@@ -961,6 +961,7 @@
               <e p="DieEnemyBehaviour.cs" t="Include" />
               <e p="IEnemyBehaviour.cs" t="Include" />
             </e>
+            <e p="DropMoneyAfterDeath.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />
             <e p="Transitions" t="Include">
               <e p="AttackTransition.cs" t="Include" />
@@ -983,6 +984,9 @@
           </e>
           <e p="LoadStartParams.cs" t="Include" />
           <e p="LookAtCamera.cs" t="Include" />
+          <e p="Money" t="Include">
+            <e p="Money.cs" t="Include" />
+          </e>
           <e p="Shop" t="Include">
             <e p="Inventory.cs" t="Include" />
             <e p="InventorySlot.cs" t="Include" />

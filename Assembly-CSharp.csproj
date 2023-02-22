@@ -51,12 +51,14 @@
      <Compile Include="Assets\Scripts\Enemies\Behaviours\IEnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Utils\Timer\Timer.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Weapons\Rifle.cs" />
      <Compile Include="Assets\Scripts\Installers\LocationInstaller.cs" />
      <Compile Include="Assets\Scripts\Installers\ShopInstaller.cs" />
      <Compile Include="Assets\Scripts\Utils\Timer\TimeInvoker.cs" />
      <Compile Include="Assets\Scripts\Enemies\Transitions\AttackTransition.cs" />
      <Compile Include="Assets\Scripts\UI\Progressbar\ProgressBar.cs" />
      <Compile Include="Assets\Scripts\UI\Progressbar\EnemyLifeBar.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Bullets\Bullets\RifleBullet.cs" />
      <Compile Include="Assets\Scripts\Spawners\EnemyPool.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullets\BulletDefault.cs" />
      <Compile Include="Assets\Scripts\Shop\Item.cs" />
@@ -66,6 +68,7 @@
      <Compile Include="Assets\Scripts\Input\GameInput.cs" />
      <Compile Include="Assets\Scripts\Equipment\EquipmentEnabler.cs" />
      <Compile Include="Assets\Scripts\Weapons\Bullets\Bullets\PistolBullet.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Bullets\Bullets\UziBullet.cs" />
      <Compile Include="Assets\Scripts\UI\DisplayCurrentWave.cs" />
      <Compile Include="Assets\Scripts\Shop\Inventory.cs" />
      <Compile Include="Assets\Scripts\Utils\Timer\TimeChangingSource.cs" />
@@ -81,9 +84,8 @@
      <Compile Include="Assets\Scripts\Enemies\Behaviours\DieEnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Utils\Pool\PoolMono.cs" />
      <Compile Include="Assets\Scripts\Weapons\Weapons\Uzi.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Weapons\Rifle.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Bullets\Bullets\UziBullet.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Bullets\Bullets\RifleBullet.cs" />
+     <Compile Include="Assets\Scripts\Enemies\DropMoneyAfterDeath.cs" />
+     <Compile Include="Assets\Scripts\Money\Money.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>
