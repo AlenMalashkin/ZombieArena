@@ -49,6 +49,7 @@ public class PoolMono<T> where T : MonoBehaviour
             if (!mono.gameObject.activeInHierarchy)
             {
                 mono.gameObject.SetActive(true);
+                mono.transform.position = Container.transform.position;
                 element = mono;
                 return true;
             }

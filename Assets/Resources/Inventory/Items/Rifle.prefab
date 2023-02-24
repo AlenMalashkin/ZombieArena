@@ -134,9 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4ca0e68d0ab2449850b0ad40680e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inventory: {fileID: 0}
   _weaponPrefabPath: Weapons/Rifle
   _button: {fileID: 4517123165428234249}
+  cost: 1000
 --- !u!1 &4517123165475796434
 GameObject:
   m_ObjectHideFlags: 0

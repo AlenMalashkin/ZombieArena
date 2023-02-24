@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using Zenject;
 using Random = UnityEngine.Random;
 
 public class DropMoneyAfterDeath : MonoBehaviour
@@ -29,7 +29,7 @@ public class DropMoneyAfterDeath : MonoBehaviour
 		for (int i = 0; i < moneyAmount; i++)
 		{
 			Money money = Instantiate(moneyPrefab, transform.position, Quaternion.identity);
-			money.SetInitialVelocity(moneySpeed, moneySpread, Random.Range(minMoveDuration, maxMoveDuration));
+			money.Init(moneySpeed, moneySpread, Random.Range(minMoveDuration, maxMoveDuration), enemy.Bank);
 		}
 	}
 }

@@ -5,18 +5,20 @@ using Zenject;
 public class LocationInstaller : MonoInstaller
 {
     [SerializeField] private Player _player;
+    [SerializeField] private Bank _bank;
+    [SerializeField] private FloatingJoystick _joystick;
     [SerializeField] private Transform _spawnPoint;
 
     [SerializeField] private EnemyPool _enemyPool;
     [SerializeField] private EquipmentFactory _equipmentFactory;
-    [SerializeField] private WaveUpscaler _waveUpscaler;
     
     public override void InstallBindings()
     {
+        BindJoystick();
         BindInstallerInterfaces();
         BindEnemyPool();
         BindPlayer();
-        BindWaveUpscaler();
+        BindBank();
     }
 
     private void BindInstallerInterfaces()
@@ -66,11 +68,19 @@ public class LocationInstaller : MonoInstaller
             .AsSingle();
     }
 
-    private void BindWaveUpscaler()
+    private void BindBank()
     {
         Container
-            .Bind<WaveUpscaler>()
-            .FromInstance(_waveUpscaler)
+            .Bind<Bank>()
+            .FromInstance(_bank)
+            .AsSingle();
+    }
+
+    private void BindJoystick()
+    {
+        Container
+            .Bind<FloatingJoystick>()
+            .FromInstance(_joystick)
             .AsSingle();
     }
 }

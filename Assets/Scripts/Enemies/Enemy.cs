@@ -5,19 +5,26 @@ using UnityEngine.AI;
 using Zenject;
 
 
-    [RequireComponent(typeof(NavMeshAgent))]
-    public class Enemy : MonoBehaviour
-    {
+[RequireComponent(typeof(NavMeshAgent))] 
+public class Enemy : MonoBehaviour 
+{
         public event Action<float> OnHealthChangedEvent;
         public event Action OnEnemyDieEvent;
-        
-        [SerializeField] private float _attackRate;
-        [SerializeField] private NavMeshAgent _agent;
-        [SerializeField] private int _healthDefault;
 
-        private int health { get; set; }
-        public float healthNormalized => (float) health / _healthDefault;
+        private const string RunAnimationName = "Running";
+        private const string PunchAnimationName = "Punching";
+        private const string DieAnimationName = "Dying";
+
+        [SerializeField] private NavMeshAgent agent;
+        [SerializeField] private int healthDefault;
+        [SerializeField] private Animator animator;
         
+        public Bank Bank { get; private set; }
+        
+        public float healthNormalized => (float) health / healthDefault;
+        private int health { get; set; }
+        
+
         private Player _player;
 
         private Dictionary<Type, IEnemyBehaviour> _behaviours;
@@ -25,15 +32,22 @@ using Zenject;
         private IEnemyBehaviour _currentBehaviour;
         
         [Inject]
-        private void Construct(Player player)
+        private void Construct(Player player, Bank bank)
         {
             _player = player;
+            Bank = bank;
         }
 
         private void OnEnable()
         {
             InitBehaviours();
             SetBehaviourByDefault();
+            var enemyParams = new WaveUpscaler();
+            
+            healthDefault = enemyParams.Health;
+            agent.speed = enemyParams.Speed;
+            
+            health = healthDefault;
             OnHealthChangedEvent?.Invoke(healthNormalized);
         }
 
@@ -70,8 +84,8 @@ using Zenject;
         {
             _behaviours = new Dictionary<Type, IEnemyBehaviour>
             {
-                [typeof(ChaseEnemyBehaviour)] = new ChaseEnemyBehaviour(_agent, _player),
-                [typeof(AttackEnemyBehaviour)] = new AttackEnemyBehaviour(_player, _attackRate),
+                [typeof(ChaseEnemyBehaviour)] = new ChaseEnemyBehaviour(agent, _player),
+                [typeof(AttackEnemyBehaviour)] = new AttackEnemyBehaviour(_player),
                 [typeof(DieEnemyBehaviour)] = new DieEnemyBehaviour(gameObject)
             };
         }
@@ -96,24 +110,18 @@ using Zenject;
             return _behaviours[typeof(T)];
         }
 
-        public void SetEnemyStatsOnCurrentWave(int healthCount, float speed, float attackRate)
-        {
-            _healthDefault = healthCount;
-            health = _healthDefault;
-            _agent.speed = speed;
-            _attackRate = attackRate;
-        }
-
         public void SetChaseBehaviour()
         {
             var behaviour = GetBehaviour<ChaseEnemyBehaviour>();
             SetBehaviour(behaviour);
+            animator.SetBool(RunAnimationName, true);
         }
 
         public void SetAttackBehaviour()
         {
             var behaviour = GetBehaviour<AttackEnemyBehaviour>();
             SetBehaviour(behaviour);
+            animator.SetBool(PunchAnimationName, true);
         }
 
 
@@ -121,7 +129,8 @@ using Zenject;
         {
             var behaviour = GetBehaviour<DieEnemyBehaviour>();
             SetBehaviour(behaviour);
+            animator.SetBool(DieAnimationName, true);
         }
-    }    
+}    
 
 

@@ -213,6 +213,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4ca0e68d0ab2449850b0ad40680e8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inventory: {fileID: 0}
   _weaponPrefabPath: Weapons/Pistol
   _button: {fileID: 5111783142814849026}
+  cost: 100

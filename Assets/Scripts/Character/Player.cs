@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour, IControllable
@@ -12,8 +13,11 @@ public class Player : MonoBehaviour, IControllable
 	[SerializeField] private Transform _groundCheckerPosition;
 	[SerializeField] private LayerMask _groundMask;
 	[SerializeField] private float _checkGroundSphereRadius;
+	[SerializeField] private Animator animator;
 	
 	[SerializeField] private int _healthDefault = 100;
+
+	public FloatingJoystick Joystick { get; private set; }
 	public int health { get; private set; }
 	public float healthNormalized => (float) health / _healthDefault;
 	
@@ -21,6 +25,12 @@ public class Player : MonoBehaviour, IControllable
 	private float _velocity;
 	private Vector3 _moveDirection;
 
+	[Inject]
+	private void Construct(FloatingJoystick joystick)
+	{
+		Joystick = joystick;
+	}
+	
 	private void Awake()
 	{
 		_controller = GetComponent<CharacterController>();
@@ -35,6 +45,16 @@ public class Player : MonoBehaviour, IControllable
 		if (IsGrounded())
 		{
 			_velocity = -2;
+		}
+		
+		if (_moveDirection != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(_moveDirection);
+            animator.SetBool("Running", true);
+        }
+		else
+		{
+			animator.SetBool("Idleing", true);
 		}
 	}
 

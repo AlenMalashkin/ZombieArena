@@ -1,38 +1,36 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 
-
-	public class AttackEnemyBehaviour : IEnemyBehaviour
-	{
+public class AttackEnemyBehaviour : IEnemyBehaviour
+{
 		private Player _player;
-		private float _startAttackRate;
 		private float _attackRate;
+		private Timer _timer;
 		
-		public AttackEnemyBehaviour(Player player, float startAttackRate)
+		public AttackEnemyBehaviour(Player player)
 		{
-			_startAttackRate = startAttackRate;
 			_player = player;
 		}
 		
 		public void Enter()
 		{
-			_attackRate = _startAttackRate;
+			_timer = new Timer(TimerType.UpdateTick);
+			
+			_timer.Start(new WaveUpscaler().AttackRate);
+			_timer.TimerFinished += HitPlayer;
 		}
 
 		public void Update()
 		{
-			_attackRate -= Time.deltaTime;
-
-			if (_attackRate <= 0)
-			{
-				_player.HitPlayer(5);
-				_attackRate = _startAttackRate;
-			}
 		}
 
 		public void Exit()
 		{
+			_timer.TimerFinished -= HitPlayer;
 		}
-	}	
+
+		private void HitPlayer()
+		{
+			_player.HitPlayer(1);
+		}
+}	
 
