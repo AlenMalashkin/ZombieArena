@@ -8,23 +8,16 @@ using Zenject;
 [RequireComponent(typeof(NavMeshAgent))] 
 public class Enemy : MonoBehaviour 
 {
-        public event Action<float> OnHealthChangedEvent;
-        public event Action OnEnemyDieEvent;
-
         private const string RunAnimationName = "Running";
         private const string PunchAnimationName = "Punching";
         private const string DieAnimationName = "Dying";
 
         [SerializeField] private NavMeshAgent agent;
-        [SerializeField] private int healthDefault;
         [SerializeField] private Animator animator;
-        
+        [SerializeField] private Collider[] collidersToEnable;
+
         public Bank Bank { get; private set; }
         
-        public float healthNormalized => (float) health / healthDefault;
-        private int health { get; set; }
-        
-
         private Player _player;
 
         private Dictionary<Type, IEnemyBehaviour> _behaviours;
@@ -42,42 +35,16 @@ public class Enemy : MonoBehaviour
         {
             InitBehaviours();
             SetBehaviourByDefault();
+            
             var enemyParams = new WaveUpscaler();
             
-            healthDefault = enemyParams.Health;
             agent.speed = enemyParams.Speed;
-            
-            health = healthDefault;
-            OnHealthChangedEvent?.Invoke(healthNormalized);
         }
 
         private void Update()
         {
             if (_currentBehaviour != null)
                 _currentBehaviour.Update();
-            
-            Debug.Log(_currentBehaviour);
-        }
-
-        private void OnCollisionEnter(Collision other)
-        {
-            if (other.collider.TryGetComponent(out BulletDefault bullet))
-            {
-                HitEnemy(bullet.damage);  
-            }
-        }
-
-        private void HitEnemy(int damage)
-        {
-            health -= damage;
-
-            if (health <= 0)
-            {
-                OnEnemyDieEvent?.Invoke();
-                gameObject.SetActive(false);
-            }
-
-            OnHealthChangedEvent?.Invoke(healthNormalized);
         }
 
         private void InitBehaviours()
@@ -86,7 +53,7 @@ public class Enemy : MonoBehaviour
             {
                 [typeof(ChaseEnemyBehaviour)] = new ChaseEnemyBehaviour(agent, _player),
                 [typeof(AttackEnemyBehaviour)] = new AttackEnemyBehaviour(_player),
-                [typeof(DieEnemyBehaviour)] = new DieEnemyBehaviour(gameObject)
+                [typeof(DieEnemyBehaviour)] = new DieEnemyBehaviour(collidersToEnable, animator, this)
             };
         }
 
@@ -115,13 +82,17 @@ public class Enemy : MonoBehaviour
             var behaviour = GetBehaviour<ChaseEnemyBehaviour>();
             SetBehaviour(behaviour);
             animator.SetBool(RunAnimationName, true);
+            animator.SetBool(PunchAnimationName, false);
+            animator.SetBool(DieAnimationName, false);
         }
 
         public void SetAttackBehaviour()
         {
             var behaviour = GetBehaviour<AttackEnemyBehaviour>();
             SetBehaviour(behaviour);
+            animator.SetBool(RunAnimationName, false);
             animator.SetBool(PunchAnimationName, true);
+            animator.SetBool(DieAnimationName, false);
         }
 
 
@@ -129,6 +100,8 @@ public class Enemy : MonoBehaviour
         {
             var behaviour = GetBehaviour<DieEnemyBehaviour>();
             SetBehaviour(behaviour);
+            animator.SetBool(RunAnimationName, false);
+            animator.SetBool(PunchAnimationName, false);
             animator.SetBool(DieAnimationName, true);
         }
 }    

@@ -988,6 +988,7 @@
             </e>
             <e p="DropMoneyAfterDeath.cs" t="Include" />
             <e p="Enemy.cs" t="Include" />
+            <e p="EnemyHealth.cs" t="Include" />
             <e p="Transitions" t="Include">
               <e p="AttackTransition.cs" t="Include" />
             </e>

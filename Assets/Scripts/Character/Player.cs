@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -50,12 +51,9 @@ public class Player : MonoBehaviour, IControllable
 		if (_moveDirection != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(_moveDirection);
-            animator.SetBool("Running", true);
         }
-		else
-		{
-			animator.SetBool("Idleing", true);
-		}
+
+		animator.SetFloat("Speed", _moveDirection.magnitude);
 	}
 
 	public void Move(Vector3 direction)

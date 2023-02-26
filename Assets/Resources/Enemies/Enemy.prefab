@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _progressBar: {fileID: 7211759084767186006}
-  _enemy: {fileID: 1616599930816149940}
+  _enemyHealth: {fileID: 5779543100178084646}
 --- !u!1 &420178960578010047
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,6 +800,7 @@ GameObject:
   - component: {fileID: 977046752175239882}
   - component: {fileID: 6944879541591951855}
   - component: {fileID: 1616599930816149940}
+  - component: {fileID: 5779543100178084646}
   - component: {fileID: 8837014603070827915}
   m_Layer: 7
   m_Name: Enemy
@@ -892,10 +893,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26c257ffe364564ca262e58a05c44d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 0
   agent: {fileID: 4758774093376144066}
-  healthDefault: 0
   animator: {fileID: 6944879541591951855}
+  collidersToEnable:
+  - {fileID: 977046752175239882}
+  - {fileID: 9078532329922073451}
+--- !u!114 &5779543100178084646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4758774093376144068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc30439bb8c63214390c81fcfee909e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1616599930816149940}
 --- !u!114 &8837014603070827915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,6 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1616599930816149940}
+  enemyHealth: {fileID: 5779543100178084646}
   moneyPrefab: {fileID: 2561151147991283736, guid: 8739d9b68b260544590afe888c57ff87, type: 3}
   moneyAmount: 5
   moneySpeed: 5
@@ -1746,6 +1762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 1616599930816149940}
+  _enemyHealth: {fileID: 5779543100178084646}
 --- !u!1 &9140633633230502455
 GameObject:
   m_ObjectHideFlags: 0

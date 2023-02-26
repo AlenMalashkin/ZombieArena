@@ -89,6 +89,7 @@
      <Compile Include="Assets\Scripts\Enemies\Behaviours\DieEnemyBehaviour.cs" />
      <Compile Include="Assets\Scripts\Utils\Pool\PoolMono.cs" />
      <Compile Include="Assets\Scripts\Weapons\Weapons\Uzi.cs" />
+     <Compile Include="Assets\Scripts\Enemies\EnemyHealth.cs" />
      <Reference Include="UnityEngine">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>

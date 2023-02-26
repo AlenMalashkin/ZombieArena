@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 public class DropMoneyAfterDeath : MonoBehaviour
 {
 	[SerializeField] private Enemy enemy;
+	[SerializeField] private EnemyHealth enemyHealth;
 	[SerializeField] private Money moneyPrefab;
 
 	[SerializeField] private int moneyAmount = 5;
@@ -15,17 +16,16 @@ public class DropMoneyAfterDeath : MonoBehaviour
 
 	private void OnEnable()
 	{
-		enemy.OnEnemyDieEvent += DropMoney;
+		enemyHealth.OnEnemyDieEvent += DropMoney;
 	}
 
 	private void OnDisable()
 	{
-		enemy.OnEnemyDieEvent -= DropMoney;
+		enemyHealth.OnEnemyDieEvent -= DropMoney;
 	}
 
 	private void DropMoney()
 	{
-		
 		for (int i = 0; i < moneyAmount; i++)
 		{
 			Money money = Instantiate(moneyPrefab, transform.position, Quaternion.identity);

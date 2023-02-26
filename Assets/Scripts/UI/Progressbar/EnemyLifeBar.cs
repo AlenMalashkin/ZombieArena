@@ -6,18 +6,18 @@ using UnityEngine;
 public class EnemyLifeBar : MonoBehaviour
 {
     [SerializeField] private ProgressBar _progressBar;
-    [SerializeField] private Enemy _enemy;
+    [SerializeField] private EnemyHealth _enemyHealth;
 
     private void OnEnable()
     {
-        _progressBar.SetValue(_enemy.healthNormalized);
+        _progressBar.SetValue(_enemyHealth.HealthNormalized);
         
-        _enemy.OnHealthChangedEvent += OnHealthChanged;
+        _enemyHealth.OnHealthChangedEvent += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        _enemy.OnHealthChangedEvent -= OnHealthChanged;
+        _enemyHealth.OnHealthChangedEvent -= OnHealthChanged;
     }
 
     private void OnHealthChanged(float newValue)

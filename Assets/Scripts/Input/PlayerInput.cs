@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class PlayerInput : MonoBehaviour
 {
+	[Inject] private Player _player;
 	private IControllable _controllable;
 	private GameInput _gameInput;
 	private FloatingJoystick _joystick;
@@ -12,9 +14,8 @@ public class PlayerInput : MonoBehaviour
 		_gameInput = new GameInput();
 		_gameInput.Enable();
 		
-		var player = GetComponent<Player>();
-		_controllable = player;
-		_joystick = player.Joystick;
+		_controllable = _player;
+		_joystick = _player.Joystick;
 		
 		if (_controllable == null)
 		{
