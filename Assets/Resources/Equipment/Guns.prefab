@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55dd05709d031234289514e99ba232ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponShootingRange: 15
+  weaponShootingRange: 10
 --- !u!1 &8508591950074920655
 GameObject:
   m_ObjectHideFlags: 0

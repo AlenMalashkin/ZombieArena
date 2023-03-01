@@ -32,7 +32,10 @@ public abstract class WeaponAbstract : MonoBehaviour
 				distances.Add((int)enemyDistance);
 			}
 
-			transform.LookAt(enemies[Array.IndexOf(distances.ToArray(), distances.Min())].transform);
+			var enemyWithMinDistanceToPlayer = enemies[Array.IndexOf(distances.ToArray(), distances.Min())];
+			
+			if (!enemyWithMinDistanceToPlayer.IsDied)
+				transform.LookAt(enemyWithMinDistanceToPlayer.transform);
 		}
 	}
 }

@@ -23,9 +23,12 @@ public class EquipmentEnabler : MonoBehaviour
 		var distances = new List<int>();
 			
 		foreach (var enemy in enemies)
-		{ 
-			var enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
-			distances.Add((int)enemyDistance);
+		{
+			if (!enemy.IsDied)
+			{
+				var enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
+				distances.Add((int)enemyDistance);
+			}
 		}
 
 		var minDistance = distances.Min();

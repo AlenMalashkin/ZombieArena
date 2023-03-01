@@ -19,8 +19,8 @@ public class Player : MonoBehaviour, IControllable
 	[SerializeField] private int _healthDefault = 100;
 
 	public FloatingJoystick Joystick { get; private set; }
-	public int health { get; private set; }
-	public float healthNormalized => (float) health / _healthDefault;
+	private int _health;
+	public float healthNormalized => (float) _health / _healthDefault;
 	
 	private CharacterController _controller;
 	private float _velocity;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour, IControllable
 	private void Awake()
 	{
 		_controller = GetComponent<CharacterController>();
-		health = _healthDefault;
+		_health = _healthDefault;
 	}
 
 	private void FixedUpdate()
@@ -82,13 +82,14 @@ public class Player : MonoBehaviour, IControllable
 
 	public void HitPlayer(int damage)
 	{
-		health -= damage;
-
-		if (health <= 0)
+		if (_health <= 0)
 		{
 			SceneManager.LoadScene("WaveDefeated");
 		}
-
+		
+		_health -= damage;
+		
 		OnHealthChangedEvent?.Invoke(healthNormalized);
+
 	}
 }

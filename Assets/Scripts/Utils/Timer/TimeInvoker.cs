@@ -16,7 +16,7 @@ public class TimeInvoker : MonoBehaviour
 			{
 				var go = new GameObject("[TIME INVOKER]");
 				_instance = go.AddComponent<TimeInvoker>();
-				DontDestroyOnLoad(go);
+				//DontDestroyOnLoad(go);
 			}
 
 			return _instance;

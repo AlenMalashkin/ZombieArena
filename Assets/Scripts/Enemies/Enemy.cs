@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour
 
         private IEnemyBehaviour _currentBehaviour;
         
+        public bool IsDied { get; private set; }
+
         [Inject]
         private void Construct(Player player, Bank bank)
         {
@@ -33,6 +35,8 @@ public class Enemy : MonoBehaviour
 
         private void OnEnable()
         {
+            IsDied = false;
+            
             InitBehaviours();
             SetBehaviourByDefault();
             
@@ -103,6 +107,8 @@ public class Enemy : MonoBehaviour
             animator.SetBool(RunAnimationName, false);
             animator.SetBool(PunchAnimationName, false);
             animator.SetBool(DieAnimationName, true);
+
+            IsDied = true;
         }
 }    
 

@@ -397,10 +397,10 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
      <Reference Include="Zenject-usage">
-     <HintPath>C:\Users\gor28\ZombieArena\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
-     <HintPath>C:\Users\gor28\ZombieArena\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.iOS.Extensions.Xcode">
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -757,16 +757,16 @@
      <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.40f1\Editor\Data\MonoBleedingEdge\lib\mono\4.7.1-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.TestRunner">
-     <HintPath>C:\Users\gor28\ZombieArena\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.TestRunner">
-     <HintPath>C:\Users\gor28\ZombieArena\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\gor28\ZombieArena\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\gor28\ZombieArena\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>D:\UnityProjects\ZombieArena\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>

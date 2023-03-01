@@ -9,13 +9,14 @@ public class AttackEnemyBehaviour : IEnemyBehaviour
 		public AttackEnemyBehaviour(Player player)
 		{
 			_player = player;
+			_attackRate = new WaveUpscaler().AttackRate;
 		}
 		
 		public void Enter()
 		{
 			_timer = new Timer(TimerType.UpdateTick);
 			
-			_timer.Start(new WaveUpscaler().AttackRate);
+			_timer.Start(_attackRate);
 			_timer.TimerFinished += HitPlayer;
 		}
 
@@ -31,6 +32,7 @@ public class AttackEnemyBehaviour : IEnemyBehaviour
 		private void HitPlayer()
 		{
 			_player.HitPlayer(1);
+			_timer.Start(_attackRate);
 		}
 }	
 
