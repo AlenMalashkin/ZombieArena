@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Uzi : WeaponAbstract
 {
+    [Header("Weapon params")]
     [SerializeField] private UziBullet _bullet;
 
     [SerializeField] private float _fireRate;

@@ -5,10 +5,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 { 
-    public const string EquippedItemSavePath = "EquippedItem";
+    private const string EquippedItemSavePath = "EquippedItem";
+    
+    
+    private const string PistolSavePath = "Weapons/Pistol";
+    private const string UziSavePath = "Weapons/Uzi";
+    private const string RifleSavePath = "Weapons/Rifle";
+    
 
     [SerializeField] private InventorySlot slotPrefab;
-    [SerializeField] private List<Sprite> inventorySlotSprites;
     
     private Dictionary<string, Sprite> _definePrefabPathAsInventorySprite;
     
@@ -16,9 +21,9 @@ public class Inventory : MonoBehaviour
     {
         _definePrefabPathAsInventorySprite = new Dictionary<string, Sprite>()
         {
-            {"Weapons/Pistol", inventorySlotSprites[0]},
-            {"Weapons/Uzi", inventorySlotSprites[1]},
-            {"Weapons/Rifle", inventorySlotSprites[2]},
+            {PistolSavePath, Resources.Load<WeaponAbstract>(PistolSavePath).WeaponShopIcon},
+            {UziSavePath, Resources.Load<WeaponAbstract>(UziSavePath).WeaponShopIcon},
+            {RifleSavePath, Resources.Load<WeaponAbstract>(RifleSavePath).WeaponShopIcon},
         };
         
         LoadItemIcons();
@@ -31,7 +36,9 @@ public class Inventory : MonoBehaviour
             if (PlayerPrefs.GetString(EquippedItemSavePath + i) != "")
             {
                 var slot = Instantiate(slotPrefab, transform, true);
-                        
+                
+                slot.transform.localScale = new Vector3(1, 1, 1);
+                
                 slot.Init(_definePrefabPathAsInventorySprite
                     [PlayerPrefs.GetString(EquippedItemSavePath + i)]);
             }

@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Pistol : WeaponAbstract
 { 
-	[SerializeField] private PistolBullet _bullet;
+	[Header("Weapon params")]
+	[SerializeField] private PistolBullet bullet;
+	[SerializeField] private float fireRate;
 
-	[SerializeField] private float _fireRate;
-	
 	private PoolMono<PistolBullet> _bulletPool;
 	
 	private Timer _timer;
@@ -24,7 +24,7 @@ public class Pistol : WeaponAbstract
 	
 	private void Awake()
 	{
-		_bulletPool = new PoolMono<PistolBullet>(_bullet, 30, transform);
+		_bulletPool = new PoolMono<PistolBullet>(bullet, 30, transform);
 		_bulletPool.AutoExpand = true;
 	}
 	
@@ -37,6 +37,6 @@ public class Pistol : WeaponAbstract
 	{
 		var bullet = _bulletPool.GetFreeElement();
 		bullet.transform.position = transform.position;
-		_timer.Start(_fireRate);
+		_timer.Start(fireRate);
 	}
 }

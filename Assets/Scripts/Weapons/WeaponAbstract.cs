@@ -6,6 +6,11 @@ using Zenject;
 
 public abstract class WeaponAbstract : MonoBehaviour
 {
+	[Header("Shop imagination")] 
+	[SerializeField] private Sprite weaponShopIcon;
+	
+	public Sprite WeaponShopIcon => weaponShopIcon;
+	
 	private EnemyPool _enemyPool;
 	
 	public void Construct(EnemyPool enemyPool)

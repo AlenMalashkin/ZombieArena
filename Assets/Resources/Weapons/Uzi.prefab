@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616004586513053738}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2432090755550338912, guid: 6b0480e39199de04dbeb16eaafb4560e, type: 3}
 --- !u!23 &616004586513053732
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a925416358dd27e45b1d8743927339c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,5 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45458899b0fe87b46a784dafa4dfc3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponShopIcon: {fileID: 21300000, guid: dad986eceef14b7409e36e0ef856df32, type: 3}
   _bullet: {fileID: 7024137173442439988, guid: 1f55e812408de7648a1a7eb5bcd327a7, type: 3}
-  _fireRate: 0.6
+  _fireRate: 0.2

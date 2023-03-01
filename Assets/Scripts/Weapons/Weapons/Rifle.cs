@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Rifle : WeaponAbstract
 {
+    [Header("Weapon params")]
     [SerializeField] private RifleBullet _bullet;
 
     [SerializeField] private float _fireRate;
