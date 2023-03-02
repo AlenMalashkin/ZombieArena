@@ -17,8 +17,8 @@ public class Enemy : MonoBehaviour
         [SerializeField] private Collider[] collidersToEnable;
 
         public Bank Bank { get; private set; }
-        
-        private Player _player;
+
+        public Player Player { get; private set; }
 
         private Dictionary<Type, IEnemyBehaviour> _behaviours;
 
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
         [Inject]
         private void Construct(Player player, Bank bank)
         {
-            _player = player;
+            Player = player;
             Bank = bank;
         }
 
@@ -55,8 +55,8 @@ public class Enemy : MonoBehaviour
         {
             _behaviours = new Dictionary<Type, IEnemyBehaviour>
             {
-                [typeof(ChaseEnemyBehaviour)] = new ChaseEnemyBehaviour(agent, _player),
-                [typeof(AttackEnemyBehaviour)] = new AttackEnemyBehaviour(_player),
+                [typeof(ChaseEnemyBehaviour)] = new ChaseEnemyBehaviour(agent, Player),
+                [typeof(AttackEnemyBehaviour)] = new AttackEnemyBehaviour(Player),
                 [typeof(DieEnemyBehaviour)] = new DieEnemyBehaviour(collidersToEnable, animator, this)
             };
         }

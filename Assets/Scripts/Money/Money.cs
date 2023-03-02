@@ -3,6 +3,9 @@ using Random = UnityEngine.Random;
 
 public class Money : MonoBehaviour
 {
+    [SerializeField] private float attractSpeed = 5f;
+    private Player _player;
+
 	private Bank _bank;
 	private Vector3 _velocity;
 	private float _duration;
@@ -15,6 +18,10 @@ public class Money : MonoBehaviour
 			transform.Translate(_velocity * Time.deltaTime, Space.World);
 			_timer += Time.deltaTime;
 		}
+		
+		Vector3 directionToPlayer = (_player.transform.position - transform.position).normalized;
+        
+        transform.position += directionToPlayer * attractSpeed * Time.deltaTime;
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -26,9 +33,10 @@ public class Money : MonoBehaviour
 		}
 	}
 
-	public void Init(float speed, float spread, float duration, Bank bank)
+	public void Init(float speed, float spread, float duration, Bank bank, Player player)
 	{
 		_bank = bank;
+		_player = player;
 		
 		Quaternion randomRotation = Quaternion.Euler(0, Random.Range(-spread, spread), 0);
 		Vector3 randomDirection = randomRotation * transform.forward;

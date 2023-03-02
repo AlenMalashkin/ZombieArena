@@ -29,7 +29,7 @@ public class DropMoneyAfterDeath : MonoBehaviour
 		for (int i = 0; i < moneyAmount; i++)
 		{
 			Money money = Instantiate(moneyPrefab, transform.position, Quaternion.identity);
-			money.Init(moneySpeed, moneySpread, Random.Range(minMoveDuration, maxMoveDuration), enemy.Bank);
+			money.Init(moneySpeed, moneySpread, Random.Range(minMoveDuration, maxMoveDuration), enemy.Bank, enemy.Player);
 		}
 	}
 }
